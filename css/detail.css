@@ -245,4 +245,6 @@ p {
 .flex button {
   margin: 8px auto;
 }
-
+a{
+  text-decoration: none;
+}

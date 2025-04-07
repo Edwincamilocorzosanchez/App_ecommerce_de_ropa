@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <a href="detail.html"><i class="fas fa-arrow-left"></i></a>
+    <strong>Checkout</strong>
+    <i class="fas fa-ellipsis-v"></i>
+  </div>
+
+  <div class="cart-item">
+    <img src="img/Library=Product1.png" alt="Item 1">
+    <div class="item-info">
+      <p>Modern light clothes</p>
+      <p class="item-price">$212.99</p>
+    </div>
+    <div class="quantity-controls">
+      <button>-</button>
+      <span>4</span>
+      <button>+</button>
+    </div>
+  </div>
+
+  <div class="cart-item">
+    <img src="img/Library=Product2.png" alt="Item 2">
+    <div class="item-info">
+      <p>Modern light clothes</p>
+      <p class="item-price">$162.99</p>
+    </div>
+    <div class="quantity-controls">
+      <button>-</button>
+      <span>1</span>
+      <button>+</button>
+    </div>
+  </div>
+
+  <h4>Shipping Information</h4>
+  <div class="payment-section">
+    <div style="display: flex; align-items: center;">
+      <span class="card-type">VISA</span>
+      <span>**** **** **** 2143</span>
+    </div>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+
+  <div class="summary">
+    <div class="row">
+      <span>Total (5 items)</span>
+      <span>$1,014.95</span>
+    </div>
+    <div class="row">
+      <span>Shipping Fee</span>
+      <span>$0.00</span>
+    </div>
+    <div class="row">
+      <span>Discount</span>
+      <span>$0.00</span>
+    </div>
+    <div class="row">
+      <strong>Sub Total</strong>
+      <strong>$1,014.95</strong>
+    </div>
+  </div>
+
+  <button id="alertButton">Pay</button>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.getElementById('alertButton').addEventListener('click', () => {
+    Swal.fire({
+      title: "¡listo!",
+      icon: "success",
+      html: "Pago realizado",
+      didOpen: () => {
+        const swalEl = Swal.getPopup();
+        makeDraggable(swalEl);
+      }
+    });
+  });
+
+  function makeDraggable(element) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    const header = element.querySelector('.swal2-title') || element;
+
+    header.style.cursor = "move";
+    header.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      element.style.position = "absolute";
+      element.style.top = (element.offsetTop - pos2) + "px";
+      element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+</script>
+
+</div>
+</body>
+</html>
