@@ -27,13 +27,20 @@ nav {
 button {
     padding: 10px;
     border: none;
-    background: #000;
-    color: #fff;
+    background: white;
+    color:black;
     cursor: pointer;
 }
 
 button:hover {
-    background: #ff6600;
+    background-color: black;
+    color: white;
+}
+button img{
+    color: black;
+}
+button img:hover{
+    color: white;
 }
 .product {
     background: #fff;
@@ -121,27 +128,6 @@ footer {
     top: 22vh;
 }
 
-.active {
-    padding: 10px;
-    background: white;
-    color: black;
-    border-radius: 10%;
-    border:  1px solid black;
-    overflow-y: auto;
-
-}
-.active:hover {
-    background-color: black;
-    color: white;
-}
-.active img{
-    color: black;
-}
-.active img:hover{
-    background-color: black;
-    color: white;
-
-}
 @media (max-width: 768px){
     .option{
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
