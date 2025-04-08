@@ -26,8 +26,9 @@ nav {
 
 button {
     padding: 10px;
-    border: none;
-    background: white;
+    border: 1px solid black;
+    border-radius: 10%;
+    background: transparent;
     color:black;
     cursor: pointer;
 }
@@ -36,12 +37,15 @@ button:hover {
     background-color: black;
     color: white;
 }
-button img{
-    color: black;
+.actives{
+    background-color: transparent;
 }
-button img:hover{
-    color: white;
+.actives:hover{
+    background-color: white;
+    color: aqua;
 }
+
+
 .product {
     background: #fff;
     padding: 10px;
